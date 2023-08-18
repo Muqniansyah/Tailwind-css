@@ -1,0 +1,71 @@
+tailwind merupakan framework css. 
+tailwind itu sebuah utility-first framework yang didalamnya terdapat banyak kelas.
+tailwind dapat membuat website modern dengan cepat tanpa meninggalkan file htmlnya atau tanpa menyentuh file cssnya.
+tailwind dibuat oleh adam wathan pada 1 november 2017.
+
+utility didalam tailwind :
+1. preflight (css reset)
+2. layout 
+3. flexbox dan grid
+4. spacing dan sizing
+    -spacing mengatur spasi seperti margin dan padding
+    -sizing mengatur width dan height
+5. typography (font)
+6. background dan border 
+7. effect dan filter
+8. transition, tranformation dan animation
+9. tables
+
+fitur unggulan pada tailwind :
+1. interactivity
+    kita bisa berinteraksi pada elemen kita menggunakan utility class.
+    contoh interactivity :
+        A. pseudo-classes
+            hover, focus, active, first, last, ...
+        B. pseudo-element
+            before, after, placeholder, file, selection, ...
+2. responsive design
+    merancang responsive 
+3. dark mode
+    dapat dengan mudah membuat dark mode
+4. reusability
+5. custom styles
+    bisa memberikan style custom dengan mudah
+6. functions dan directives
+    contohnya sama seperti saat menggunakan sass karna dalam tailwind terdapat preprocessor
+
+
+
+Cara Konfigurasi Tailwind css:
+- pada nodeJS versi 16 keatas, kita tidak perlu install postcss dan autoprefixer. jadi otomatis sudah dilakukan penginstallan oleh tailwindnya.
+- buat file index.htmlnya.
+- lalu buat file package.json dengan "npm init -y"
+- lalu lakukan install tailwind dengan "npm install -D tailwindcss" atau "npm install tailwindcss".
+- maka nanti akan muncul folder node_modules dan package-lock.json
+- lalu ketikkan "npx tailwindcss init" pada terminal. maka nanti akan muncul file konfigurasi tailwindcss yang bernama file tailwind.config.js
+- pada konfigurasi tailwindcss didalam tailwind.config.js, pada content dalam module.exports kita arahkan kepada file yang ingin tailwindcss jalankan yaitu file index.html
+- lalu buat file baru bernama tailwind.css, dan dialamnya berikan directives/arahan dari website tailwindcss yang berupa :
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+- lalu lakukan build dengan perintah "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch" atau supaya lebih mudah cara buildnya maka
+kita atur di file package.json dibagian scriptsnya. yang berupa :
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./tailwind.css -o ./style.css --watch"
+  },
+arti dari script build : tailwindcss -i lalu arahkan kefile inputnya yaitu file tailwind.css dan tambahkan argumen -o untuk menambahkan output berupa file output yang akan dibuatkan nanti yang bernama style.css
+lalu berikan argumen terakhir yaitu --watch
+- jalankan dengan npm run build. maka nanti akan muncul file style.css
+
+cara menjalankannya :
+- pada file html ketik "!" untuk buat file html
+- arahkan pada file style.css yang sudah dibuatkan oleh tailwind dengan menggunakan tag <link>, contoh :
+<link rel="stylesheet" href="style.css" />
+- eksekusi code, contoh :
+<h1 class="text-4xl">Mari belajar tailwind css</h1>
+
+# untuk menjalankan autocomplete ketik ctrl + spasi. namun install terlebih dahulu extension vscode yang bernama 
+tailwind css IntelliSense.
+
+

@@ -1,0 +1,136 @@
+Cara menggunakan Tailwind css dengan memakai cdn :
+- buat file html 
+- import cdn tailwind dan simpan dibagian head dari html, berupa :
+<script src="https://cdn.tailwindcss.com"></script>
+- buat file konfigurasi tailwind yaitu file tailwind.config.js yang isinya kosong saja tidak perlu diedit, supaya bisa memunculkan autocomplete dari tailwind.
+
+
+Basic utility :
+- Pada umumnya, Anda akan menemui penggunaan atribut type ini saat menentukan jenis bahasa atau sintaksis CSS yang 
+digunakan dalam elemen <style>. Misalnya, jika Anda ingin menggunakan Tailwind CSS, Anda dapat mengatur atribut type sebagai 
+text/tailwindcss untuk memberi tahu browser atau mesin pengurai bahwa konten di dalam elemen <style> adalah kode Tailwind CSS.
+contoh : 
+<style type="text/tailwindcss">
+      * {
+        border: 1px solid red;
+      }
+</style>
+
+-jika fitur tailwind yang diberikan kurang cukup puas dan kita ingin edit / membuat style css sendiri untuk ditambahkan, maka
+bisa lakukan customization. 
+1. bisa dengan cara letakkan isi konfigurasi didalam file tailwind.config.js, contoh konfigurasi :
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    spacing: {
+      sm: '8px',
+      md: '12px',
+      lg: '16px',
+      xl: '24px',
+    }
+  }
+}
+
+2. bisa dengan cara letakkan konfigurasi pada file htmlnya pada bagian head dari html setelah meletakkan cdn tailwind, contoh konfigurasi: 
+<script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+
+catatan :
+1. custom font
+// custom font( tulis nama fontnya lalu titik dua setelah itu kurung siku dan didalamnya berikan font yang diambil yang mana dan harus sesuai
+dengan yang kita ambil pada google fonts). contoh :
+            fontFamily: {
+              inter: ["Inter"],
+            },
+lalu kita pakai dengan nama key-nya yaitu inter. contoh :
+<h2 class="font-inter">Belajar mengenai Typography pada tailwind css</h2>
+
+2. custom warna
+ // custom warna, yaitu tulis nama warnanya lalu setelah titik dua panggil warna customnya.
+            colors: {
+              muqni: "#bada55",
+            },
+lalu kita pakai dengan nama key-nya yaitu muqni. contoh :
+<h2 class="bg-muqni">Belajar mengenai Typography pada tailwind css</h2>
+
+3. nilai sembarang/ arbitrary value, caranya dengan bantuan kurung siku []
+yaitu nilai sembarang yang bisa kita berikan kesebuah class yang sudah ditentukan oleh tailwindnya.
+jika kita kurang cukup puas dan kita ingin edit / membuat style css sendiri untuk ditambahkan, maka
+bisa lakukan customization. tapi jika nilai yang digunakan hanya digunakan sekali saja, daripada kita melakukan customization yang sedikit 
+merepotkan maka kita bisa langsung memberikan nilai semabarang tadi pada classnya. contoh :
+    <div class="bg-[#bada55] mt-[12px]"></div>
+contoh disini memeberikan nilai sembarang pada background color dan margin top.
+
+4. cara menangani patah" saat meleset lakukan hover/kurang tepat hovernya. 
+yaitu caranya bungkus kedalam sebuah elemen dan kita kasih grouping. jadi yang nanti dihover adalah pembungkusnya. contoh :
+<div class="mt-20 w-40 h-40 mx-auto bg-pink-950 group">
+      <div
+        class="w-full h-full bg-sky-500 rounded-lg shadow-lg group-hover:rotate-180 origin-top-left transition"
+      ></div>
+    </div>
+
+alasannya mengapa terjadi patah patah, karena yang dihover adalah elemen yang lagi bergerak. sedangkan contoh diatas ini 
+yang dihover adalah element parentnya. jadi jika ingin membuat transition terhadap elemen yang bergerak keluar dari elemennya maka gunakan group.
+dan supaya lebih bagus transitionnya kita hilangkan warna pada element parentnya.
+sehingga menjadi :
+ <div class="mt-20 w-40 h-40 mx-auto group">
+      <div
+        class="w-full h-full bg-sky-500 rounded-lg shadow-lg group-hover:rotate-180 origin-top-left transition"
+      ></div>
+    </div>
+
+5. custom animation
+// custom animation, yaitu tulis nama animation(nama animation bisa bebas) lalu setelah titik dua panggil animation customnya sesuai dengan animation yang ada ditailwindcss.
+            animation: {
+              "spin-slow": "spin 3s linear infinite",
+            },
+lalu kita pakai dengan nama key-nya yaitu spin-slow. contoh :
+<div class="mt-20 w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg animate-spin-slow"></div>
+
+6. membuat animation sendiri diluar dari animation yang diberikan oleh tailwindcss
+caranya kita modifikasi dengan membuat keyframes animasi baru dibagian konfigurasi tailwindcss pada extend. yang berupa :
+// buat keyframes, yaitu tulis nama keyframes(nama keyframes bisa bebas) lalu setelah titik dua kita buat transition sesuai keinginan kita.
+           keyframes: {
+              goyang: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+            },
+artinya : transition pada 0% dan 100% buat transform rotate -3 derajat dan pada 50% lakukan transform rotate 3 derajat.
+lalu kita panggil di custom animation. contoh :
+animation: {
+              "spin-slow": "spin 3s linear infinite",
+              goyang: "goyang 1s ease-in-out infinite",
+            },
+arti : yaitu tulis nama animation goyang(nama animation bisa bebas) lalu setelah titik dua panggil nama keyframesnya yaitu goyang lalu sesuaikan durasi, timing function sesuai yang ada pada tailwindcss dan berikan animation infinite jika ingin berjalan slalu tanpa berhenti.
+lalu kita pakai dengan nama key-nya yaitu goyang. contoh :
+<div class="mt-20 w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg animate-goyang"></div>
+
+7. Responsive Design
+cara memakainya tinggal memanggil breakpoint prefix yang berupa sm,md,lg,xl,2xl didepannya. contoh pemakaian :
+<div class="container px-6 mt-20 font-inter max-w-md mx-auto sm:bg-red-200 md:bg-green-200 lg:bg-blue-200 xl:bg-yellow-200"></div>
+
+cara penerapan :
+sm:bg-red-200 untuk small device.
+
+-mobile first 
+jadi secara default tailwindcss memakai breakpoint mobile. jadi disarankan sebaiknya mendesign atau buat websitenya dilayar mobile dahulu jika menggunakan tailwindcss.
+jadi selalu pastikan diversi layar mobile sudah bagus tampilannya dengan menggunakan sm jika menggunakan tailwindcss, baru berikutnya bisa dilayar yang lebih besar seperti md,lg,xl dan 2xl.
+
+8. flexbox
+cara menggunakan flexbox yaitu dengan memberikan elemen dengan display flex. lalu elemen elemen didalamnya bisa kita atur perilakunya menggunakan aturan flex.

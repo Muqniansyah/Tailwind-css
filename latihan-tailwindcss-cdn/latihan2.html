@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- cdn Tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            spacing: {
+              13: "3.25rem",
+            },
+            // custom font
+            fontFamily: {
+              inter: ["Inter"],
+            },
+            // custom warna
+            colors: {
+              muqni: "#bada55",
+            },
+            // custom animation
+            animation: {
+              "spin-slow": "spin 3s linear infinite",
+              goyang: "goyang 1s ease-in-out infinite",
+            },
+            // buat animation baru
+            keyframes: {
+              goyang: {
+                "0%, 100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <title>latihan 2</title>
+    <style type="text/tailwindcss"></style>
+  </head>
+  <body>
+    <!-- belajar typography dan warna -->
+    <section class="mt-20 font-serif max-w-3xl mx-auto">
+      <h2
+        class="mb-2 font-inter text-4xl font-bold bg-gradient-to-br from-blue-500 to-teal-400 bg-clip-text text-transparent"
+      >
+        Belajar mengenai Typography pada tailwind css
+      </h2>
+      <div class="mb-4 font-mono text-lg text-gray-500 bg-muqni">
+        by
+        <a href="#" class="text-gray-700 font-semibold">Muqniansyah Arifin</a>,
+        16 Agustus 2023
+      </div>
+      <p class="mb-4 bg-gradient-to-tr from-yellow-500 via-red-400 to-blue-500">
+        Lorem, ipsum dolor sit amet
+        <a href="#" class="underline font-semibold text-blue-600"
+          >consectetur</a
+        >
+        adipisicing elit. Et similique molestiae cumque aspernatur ratione
+        numquam reprehenderit quisquam nihil eum alias placeat voluptatibus hic
+        impedit facilis corrupti, esse eaque sit velit sint non consectetur
+        cupiditate vel nostrum! Expedita accusantium hic neque similique
+        consequatur, laborum esse odio incidunt, voluptates reprehenderit id
+        assumenda?
+      </p>
+      <blockquote class="mb-4 italic font-thin text-xl bg-indigo-200">
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+        dignissimos possimus earum totam rem repudiandae facere. Consequatur
+        nihil perferendis dicta."
+      </blockquote>
+      <p class="mb-4 bg-gradient-to-r from-cyan-500 to-blue-500">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
+        minima sequi, amet illo error, ipsum eos tenetur hic porro et fugiat
+        assumenda corporis similique sunt dolor ratione nostrum nulla facilis.
+      </p>
+    </section>
+    <br /><br />
+    <hr />
+
+    <!-- belajar background, border, effects, filters-->
+    <div
+      class="max-w-xl h-96 bg-[#bada55] mt-[12px] mx-auto overflow-y-scroll bg-fixed shadow-2xl shadow-teal-300 opacity-80"
+      style="
+        background-image: url('https://source.unsplash.com/1000x600?computer');
+      "
+    >
+      <p class="p-5 text-2xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        dolorum corrupti, in quaerat quo non recusandae neque tempore est facere
+        sit facilis. Ratione, obcaecati? Molestias fugiat dolorem suscipit eos
+        exercitationem esse ducimus nobis quos impedit laboriosam eveniet quo
+        consequuntur cupiditate ex dignissimos cum, adipisci magnam vero quia
+        ipsa. Reprehenderit sunt, officiis maiores saepe dolorum quam
+        cupiditate. Harum explicabo dignissimos tenetur maxime aut quibusdam
+        labore numquam dolor reprehenderit rem perspiciatis illo facere,
+        consequatur aspernatur delectus nulla libero officiis repellendus,
+        similique eligendi, optio ipsa et quo a. Fugit magnam nam vel pariatur
+        iure cupiditate id distinctio dolorum nulla accusamus provident totam,
+        rem error suscipit! Reiciendis odio, aperiam dolorem error et laboriosam
+        eligendi dicta commodi consequatur, veniam possimus. Officiis eaque aut,
+        perspiciatis dignissimos est sapiente laborum quibusdam aperiam iste a
+        nostrum! Aliquam commodi blanditiis incidunt. Quidem enim laborum nihil
+        officia quasi provident. Inventore provident facere modi sapiente iste
+        eos quod. Explicabo ipsam exercitationem rerum nam aliquid fuga iste.
+        Recusandae dicta neque inventore, quasi unde nulla ex magnam. Distinctio
+        nisi architecto dolorum maxime recusandae a error asperiores fugit
+        doloribus. Omnis inventore deserunt laboriosam provident et ex
+        recusandae aut dolor illo ratione quae, expedita labore quia? Corrupti
+        molestias facilis nam officia eos mollitia ex. Cum.
+      </p>
+    </div>
+
+    <div
+      class="mt-32 max-w-xl h-[400px] mx-auto bg-slate-400 bg-contain bg-no-repeat bg-center rounded-2xl border-8 border-red-400 border-dashed overflow-hidden"
+      style="background-image: url(./img/1.jpg)"
+    >
+      <div class="w-full h-full bg-blue-300 mix-blend-multiply"></div>
+    </div>
+
+    <div
+      class="mt-32 max-w-xl h-[400px] mx-auto bg-slate-400 bg-contain bg-no-repeat bg-center rounded-2xl border-8 border-red-400 overflow-hidden bg-blend-screen"
+      style="background-image: url(./img/1.jpg)"
+    ></div>
+
+    <div
+      class="mt-32 max-w-xl h-[400px] mx-auto bg-slate-400 bg-contain bg-no-repeat bg-center rounded-2xl border-8 border-red-400 overflow-hidden bg-blend-screen"
+      style="background-image: url(./img/1.jpg)"
+    >
+      <div class="w-full h-full bg-blue-300 mix-blend-multiply"></div>
+    </div>
+
+    <div
+      class="mt-32 max-w-xl h-[400px] mx-auto bg-slate-400 bg-contain bg-no-repeat bg-center rounded-2xl border-8 border-red-400 overflow-hidden blur-sm"
+      style="background-image: url(./img/1.jpg)"
+    ></div>
+
+    <div
+      class="mt-32 max-w-xl h-[400px] mx-auto bg-slate-400 bg-contain bg-no-repeat bg-center rounded-2xl border-8 border-red-400 overflow-hidden flex"
+      style="background-image: url(./img/1.jpg)"
+    >
+      <div
+        class="w-[200px] h-[200px] bg-white/30 m-auto backdrop-blur-sm rounded-full"
+      ></div>
+    </div>
+    <br /><br />
+    <hr />
+
+    <!-- belajar pseudo class dan dark mode -->
+    <br /><br />
+    <hr />
+
+    <!-- belajar transform, transition, animation -->
+    <div
+      class="mt-9 w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-125 hover:rotate-45 hover:translate-x-16 hover:bg-pink-500 transition"
+    ></div>
+
+    <div
+      class="mt-9 w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-125 hover:rotate-45 hover:bg-pink-500 transition origin-top-left"
+    ></div>
+
+    <!--cara menangani patah" saat meleset lakukan hover/kurang tepat hovernya. yaitu caranya bungkus kedalam sebuah elemen dan kita kasih grouping. -->
+    <div class="mt-20 w-40 h-40 mx-auto group">
+      <div
+        class="w-full h-full bg-sky-500 rounded-lg shadow-lg group-hover:rotate-180 origin-top-left transition duration-1000 ease-in delay-1000"
+      ></div>
+    </div>
+
+    <!-- contoh animation -->
+    <div
+      class="mt-20 w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg animate-spin"
+    ></div>
+
+    <div
+      class="mt-20 w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg animate-spin-slow"
+    ></div>
+
+    <div
+      class="mt-20 w-40 h-40 bg-pink-500 mx-auto rounded-lg shadow-lg animate-goyang"
+    ></div>
+
+    <div class="mb-60"></div>
+  </body>
+</html>

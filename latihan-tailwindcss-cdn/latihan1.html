@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- cdn Tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // konfigurasi tailwindcss
+      tailwind.config = {
+        theme: {
+          // extend jangan dihapus, karna untuk menambahkan aturan baru atau pewarisan.
+          extend: {
+            // contoh ubah style
+            spacing: {
+              13: "3.25rem",
+            },
+          },
+        },
+      };
+    </script>
+    <title>latihan 1</title>
+    <style type="text/tailwindcss">
+      * {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- belajar spacing, spacing untuk berikan jarak pada elemen -->
+    <section class="mb-10">
+      <h2>Belajar Spacing</h2>
+      <div class="m-13">margin</div>
+      <p class="mx-6">
+        Pada umumnya, Anda akan menemui penggunaan atribut type ini saat
+        menentukan jenis bahasa atau sintaksis CSS yang digunakan dalam elemen
+        tag style. Misalnya, jika Anda ingin menggunakan Tailwind CSS, Anda
+        dapat mengatur atribut type sebagai text/tailwindcss untuk memberi tahu
+        browser atau mesin pengurai bahwa konten di dalam elemen tag style
+        adalah kode Tailwind CSS.
+      </p>
+      <br />
+
+      <div class="px-4">padding</div>
+      <p>
+        margin ditailwind bisa diberikan auto dan negatif, namun untuk padding
+        ditailwind tidak bisa diberikan auto dan negatif.
+      </p>
+    </section>
+
+    <!-- belajar sizing -->
+    <section class="mb-10">
+      <h2>Sizing</h2>
+      <div class="w-32 h-32">Kotak 1</div>
+      <div class="max-w-xs min-h-screen">Kotak 2</div>
+    </section>
+  </body>
+</html>
