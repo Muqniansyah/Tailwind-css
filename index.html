@@ -3,10 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Belajar Tailwind CSS</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <h1 class="text-4xl">Mari belajar tailwind css</h1>
+  <body class="dark:bg-slate-800 dark:text-slate-200">
+    <h1>Mari belajar tailwind css</h1>
+    <h4>yuk ah gasken</h4>
+
+    <div
+      class="mt-20 p-2 font-inter grid grid-cols-2 gap-2 md:grid-cols-4 md:p-4"
+    >
+      <h2
+        class="text-xl font-semibold text-slate-700 md:col-start-4 md:row-start-2 md:flex"
+      >
+        <span class="self-center">Belajar Grid</span>
+      </h2>
+      <div
+        class="text-lg font-bold text-slate-600 md:col-start-2 md:row-start-2 md:flex"
+      >
+        <span class="self-end">Muqniansyah</span>
+      </div>
+
+      <div class="grid-card group">
+        <div class="grid-card-img bg-[url('./img/1.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group md:col-start-3">
+        <div class="grid-card-img bg-[url('./img/2.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group">
+        <div class="grid-card-img bg-[url('./img/3.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group">
+        <div class="grid-card-img bg-[url('./img/4.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group">
+        <div class="grid-card-img bg-[url('./img/5.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group md:col-start-2">
+        <div class="grid-card-img bg-[url('./img/6.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group md:col-start-4">
+        <div class="grid-card-img bg-[url('./img/7.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group">
+        <div class="grid-card-img bg-[url('./img/8.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group md:col-start-3">
+        <div class="grid-card-img bg-[url('./img/9.jpg')]"></div>
+      </div>
+
+      <div class="grid-card group md:col-start-3">
+        <div class="grid-card-img bg-[url('./img/10.jpg')]"></div>
+      </div>
+    </div>
+
+    <!-- tombol dark mode -->
+    <div class="flex justify-center">
+      <span class="text-sm text-slate-500 mr-2">Light</span>
+      <input type="checkbox" id="toggle" class="hidden" />
+      <label for="toggle">
+        <div
+          class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer"
+        >
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span class="text-sm text-slate-500 ml-2">Dark</span>
+    </div>
+
+    <br /><br />
+    <hr />
+
+    <script>
+      // dark mode fitur
+      const checkbox = document.querySelector("#toggle");
+      const html = document.querySelector("html");
+
+      checkbox.addEventListener("click", function () {
+        // ternary operator, condition ? expression1 : expression2.
+        checkbox.checked
+          ? html.classList.add("dark")
+          : html.classList.remove("dark");
+      });
+    </script>
   </body>
 </html>

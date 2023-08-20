@@ -241,3 +241,35 @@ c. cara menambahkan atau mengubah mode dark/lightnya dengan javascript :
 </script>
 dan jangan lupa hapus class pada tag html tadi yang berupa : <html lang="en" class="dark">
 maka tag htmlnya hanya seperti ini : <html lang="en">
+
+14. function dan directives
+pada saat menggunakan function dan directives pada tailwind, agar lebih efektif dalam memakainya maka kita perlu download tailwindcss terlebih dahulu.
+agar kita bisa gunakan secara lokal atau menggunakan tailwind cli.
+
+-directives yaitu keywoard yang dapat digunakan pada tailwindcss yang didepannya memiliki at-rules(@-rules) yang bisa digunakan dalam
+css yang menawarkan fungsi fungsi yang spesial di project tailwind kita.
+
+macam" directives :
+a. @tailwind, digunakan untuk melakukan generate terhadap file css tailwind atau bisa dibilang fitur bawaan tailwindcss. dibagi menjadi 3 yaitu :
+      1.) @tailwind base, style utama yang menjadi dasar dari tailwindcss. seperti ukuran dan style dasar dari semua elemen html.
+      2.) @tailwind components, menambahkan class" components jika ada atau menambahkan class" components yang didaftarkan oleh plugin.
+      3.) @tailwind utilities, disini tailwind akan memasukkan class" utility yang kita gunakan.
+      4.) @tailwind variants, seperti jika ada hover, focus, dan lain sebagainya.
+b. @layer, digunakan untuk memodifikasi isi dari directives @tailwind. dibagi jadi 3 yaitu :
+      1.) @layer base, modifikasi isi @tailwind base. dan hasil style disimpan diatas.
+      2.) @layer components, modifikasi isi @tailwind components. dan hasil style disimpan ditengah.
+      3.) @layer utilities, modifikasi isi @tailwind utilities. dan hasil style disimpan dibawah.
+c. @apply, digunakan untuk melakukan penyimpanan utility utility class yang sudah ada ditailwindcss untuk dimasukkan ke custom css kita secara inline.
+  contohnya kita ingin memberikan class custom tapi menggunakan property milik tailwindcss. 
+  dan @apply bisa digunakan untuk membuat components pada @layer components.
+d. @config
+
+- function yaitu Tailwind menambahkan beberapa fungsi khusus yang dapat Anda gunakan di CSS untuk mengakses nilai khusus Tailwind. 
+Fungsi ini dievaluasi pada waktu pembuatan, dan diganti dengan nilai statis di CSS final Anda.
+
+macam" function tailwindcss :
+a. theme(), untuk akses nilai yang kita buat dalam variabel theme di konfigurasi tailwind yaitu pada file tailwind.config.js
+b.  screen(), untuk membuat media query sendiri didalam konfigurasi tailwind yaitu pada file tailwind.config.js
+
+
+#ketik ctrl + f untuk menggunakan find pada vscode.
