@@ -134,3 +134,110 @@ jadi selalu pastikan diversi layar mobile sudah bagus tampilannya dengan menggun
 
 8. flexbox
 cara menggunakan flexbox yaitu dengan memberikan elemen dengan display flex. lalu elemen elemen didalamnya bisa kita atur perilakunya menggunakan aturan flex.
+
+9. grid
+cara menggunakan grid yaitu dengan memberikan elemen dengan display grid. lalu elemen elemen didalamnya bisa kita atur perilakunya menggunakan aturan grid.
+
+10. pseudo class
+cara menggunakannya tambahkan pseudo class lalu titik dua setelah itu berikan kondisi yang ingin diubah. contoh :
+hover:bg-sky-500
+artinya ketika dihover background berubah jadi sky 500
+
+11. grouping
+yaitu memberikan style pada elemen ketika elemen pembungkusnya/parentnya yang kita berikan pseudo class.
+cara pakainya berikan elemen pembungkusnya/parentnya adalah sebuah group, lalu kita bisa akses pada elemen didalam pembungkusnya dengan cara
+group-(pseudo classnya): (kondisi yang ingin diubah). contoh :
+  group-hover:text-white
+artinya pada saat group dihover maka ubah teksnya jadi warna putih.
+
+contoh lengkap :
+<div class="max-w-lg my-10 border border-slate-200 rounded-xl mx-auto p-5 shadow-md font-serif hover:bg-sky-500 group">
+  <h5 class="font-bold text-slate-700 text-lg mb-3 group-hover:text-white">Contoh Group</h5>
+  <p class="text-slate-600 group-hover:text-white">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iure
+    quisquam aperiam ad numquam quasi asperiores incidunt, reprehenderit
+    nulla labore, rem minima aut magni ipsum?
+  </p>
+</div>
+
+12. peer
+yaitu memberikan style pada elemen ketika elemen saudara/siblingnya yang kita berikan pseudo class. siblingnya berarti elemen yang bersebelahan.
+cara pakainya berikan elemen sibling/saudaranya adalah sebuah peer, lalu kita bisa akses pada elemen disebelahnya/saudaranya yang ingin diberikan perubahan dengan cara
+peer-(pseudo classnya): (kondisi yang ingin diubah). contoh :
+  peer-invalid:visible
+artinya pada saat peer invalid maka munculkan.
+
+contoh lengkap :
+<div class="max-w-lg border border-slate-200 rounded-xl mx-auto shadow-md font-inter p-5">
+  <form action="">
+    <label for="email" class="block">
+      <span class="block font-semibold mb-1 text-slate-700 after:content-['*'] after:text-pink-500 after:ml-0.5">Email</span>
+      <input type="email" id="email" placeholder="masukkan email..." class="px-3 py-2 border shadow rounded w-full block text-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 invalid:text-pink-700 invalid:focus:ring-pink-700 invalid:focus:border-pink-700 peer"/>
+      <p class="text-sm m-1 text-pink-700 invisible peer-invalid:visible">Email tidak valid</p>
+    </label>
+  </form>
+</div>
+
+13. darkmode
+-cara menambahkan fitur darkmode yaitu dengan menuliskan class dark lalu kondisinya, seperti :
+  dark:(kondisi). 
+contoh :
+  dark:bg-slate-800
+dengan menuliskan seperti ini mode darkmode belum aktif karena kita tidak sedang dimode darkmode.
+
+-cara supaya darkmodenya aktif, caranya ada 2 :
+1. ambil mode darkmode dari sistem operasi kita. contohmya sistem operasi windows.
+2. menggunakan darkmode tanpa mengubah setting dari sistem operasi melainkan dari webnya. caranya :
+tambahkan pada konfigurasi tailwind darkMode: "class", contoh lengkap :
+tailwind.config = {
+        // fitur dark mode
+        darkMode: "class",
+        theme: {
+          extend: {},
+        },
+};
+dengan begini artinya tailwind akan merubah mode sesuai dengan class yang diberikan. 
+lalu kita berikan dihtml untuk memberi tahu kita ada dimode dark/light. contoh :
+<!-- cara manual untuk ganti mode dark/light, tambahkan pada classnya pada tag html. -->
+contoh mode light : <html lang="en" class="light">
+contoh mode dark : <html lang="en" class="dark">
+
+jika tidak mau diganti mode secara manual dengan merubah class pada tag html, maka kita perlu membuat tombol atau toggle untuk merubah mode.
+contoh :
+a. elemen toggle :
+<!-- tombol dark mode -->
+    <div class="flex justify-center">
+      <span class="text-sm text-slate-500 mr-2">Light</span>
+      <input type="checkbox" id="toggle" class="hidden" />
+      <label for="toggle">
+        <div
+          class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer"
+        >
+          <div class="w-4 h-4 bg-white rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span class="text-sm text-slate-500 ml-2">Dark</span>
+    </div>
+
+b. custom css supaya tombol atau togglenya bisa bergeser/bergerak :
+<style type="text/tailwindcss">
+      /* supaya menggeser fitur dark mode */
+      #toggle:checked ~ label div.toggle-circle {
+        @apply translate-x-3;
+      }
+</style>
+
+c. cara menambahkan atau mengubah mode dark/lightnya dengan javascript :
+<script>
+      // dark mode fitur
+      const checkbox = document.querySelector("#toggle");
+      const html = document.querySelector("html");
+
+      checkbox.addEventListener("click", function () {
+        checkbox.checked
+          ? html.classList.add("dark")
+          : html.classList.remove("dark");
+      });
+</script>
+dan jangan lupa hapus class pada tag html tadi yang berupa : <html lang="en" class="dark">
+maka tag htmlnya hanya seperti ini : <html lang="en">
