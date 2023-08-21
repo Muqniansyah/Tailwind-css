@@ -43,7 +43,23 @@ Cara Konfigurasi Tailwind css:
 - lalu lakukan install tailwind dengan "npm install -D tailwindcss" atau "npm install tailwindcss".
 - maka nanti akan muncul folder node_modules dan package-lock.json
 - lalu ketikkan "npx tailwindcss init" pada terminal. maka nanti akan muncul file konfigurasi tailwindcss yang bernama file tailwind.config.js
-- pada konfigurasi tailwindcss didalam tailwind.config.js, pada content dalam module.exports kita arahkan kepada file yang ingin tailwindcss jalankan yaitu file index.html
+- pada konfigurasi tailwindcss didalam tailwind.config.js, pada content dalam module.exports kita arahkan kepada file yang ingin tailwindcss jalankan yaitu file index.html, jika ingin 
+mengarahkan lebih dari satu file agar bisa terhubung dengan tailwindcss maka kita pakai tanda koma(,).contoh :
+	
+module.exports = {
+  content: ["./index.html", "./public/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+artinya : melihat file index.html dan folder public dan apapun folder serta file didalamnya selama ekstensi filenya html atau javascript.
+
+"./index.html": Ini mengacu pada file index.html dalam direktori utama proyek.
+"./public/**/*.{html,js}": Ini adalah pola pencarian yang mengacu pada semua file dengan ekstensi .html atau .js dalam direktori public dan semua subdirektorinya.
+Jadi, secara umum, kode tersebut mengatakan bahwa konten yang akan dimasukkan dalam konteks ini termasuk file index.html di direktori utama proyek, serta semua file .html dan .js dalam direktori public dan subdirektorinya. 
+
 - lalu buat file baru bernama tailwind.css, dan dialamnya berikan directives/arahan dari website tailwindcss yang berupa :
 @tailwind base;
 @tailwind components;
