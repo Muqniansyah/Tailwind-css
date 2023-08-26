@@ -84,4 +84,13 @@ cara menjalankannya :
 # untuk menjalankan autocomplete ketik ctrl + spasi. namun install terlebih dahulu extension vscode yang bernama 
 tailwind css IntelliSense.
 
+#mendownload prettier pada aplikasi tailwindcss, yang bertujuan agar merapikan urutan penulisan code dari class tailwindcss dan merapikan code aplikasi kita.
+dengan cara :
+ npm i -D prettier prettier-plugin-tailwindcss
 
+#minify file css dari hasil output tailwind, dilakukan ketika aplikasi sudah benar benar selesai dan siap diluncurkan atau dijalankan. dengan cara :
+npx tailwindcss -i ./src/input.css -o ./dist/css/final.css --minify
+
+keterangan :
+./src/input.css merupakan file css awal kita yang dibuild/ dibuatkan menggunakan tailwindcss
+./dist/css/final.css merupakan pembuatan file final.css hasil minify yang berada pada folder css didalam folder dist.
